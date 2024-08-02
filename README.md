@@ -1,4 +1,4 @@
-# data-structures-and-algorithms
+# Data Structures and Algorithms
 
 This repository is my progress of learning and implementing Data Structures and Algorithms along with the notes I take.
 
@@ -6,7 +6,7 @@ This repository is my progress of learning and implementing Data Structures and 
 
 **Last Updated: 02/08/2024**
 
-### My Plan for DSA
+### My Plan for this process:
 
 - **Resources:**
   - [Abdul Bari YouTube Playlist](https://www.youtube.com/playlist?list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O)
