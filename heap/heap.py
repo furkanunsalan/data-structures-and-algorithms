@@ -1,38 +1,61 @@
-# Heapify function to maintain heap property
+# Python program for implementation of heap Sort
+
+# To heapify a subtree rooted with node i
+# which is an index in arr[].
+
+# Link to GeeksForGeeks Referance: https://www.geeksforgeeks.org/heap-sort/
+
 def heapify(arr, n, i):
-    largest = i  # Initialize largest as root
-    left = 2 * i + 1  # left = 2*i + 1
-    right = 2 * i + 2  # right = 2*i + 2
+    
+     # Initialize largest as root
+    largest = i 
+    
+    #  left index = 2*i + 1
+    l = 2 * i + 1 
+    
+    # right index = 2*i + 2
+    r = 2 * i + 2  
 
     # If left child is larger than root
-    if left < n and arr[largest] < arr[left]:
-        largest = left
+    if l < n and arr[l] > arr[largest]:
+        largest = l
 
     # If right child is larger than largest so far
-    if right < n and arr[largest] < arr[right]:
-        largest = right
+    if r < n and arr[r] > arr[largest]:
+        largest = r
 
     # If largest is not root
     if largest != i:
-        arr[i], arr[largest] = arr[largest], arr[i]  # swap
+        arr[i], arr[largest] = arr[largest], arr[i]  # Swap
 
         # Recursively heapify the affected sub-tree
         heapify(arr, n, largest)
 
-# Heap Sort implementation
-def heap_sort(arr):
-    n = len(arr)
+# Main function to do heap sort
+def heapSort(arr):
+    
+    n = len(arr) 
 
-    # Build a maxheap.
+    # Build heap (rearrange array)
     for i in range(n // 2 - 1, -1, -1):
         heapify(arr, n, i)
 
-    # Extract elements one by one
-    for i in range(n-1, 0, -1):
-        arr[i], arr[0] = arr[0], arr[i]  # swap
+    # One by one extract an element from heap
+    for i in range(n - 1, 0, -1):
+      
+        # Move root to end
+        arr[0], arr[i] = arr[i], arr[0] 
+
+        # Call max heapify on the reduced heap
         heapify(arr, i, 0)
 
-# Test Heap Sort
-arr = [12, 11, 13, 5, 6, 7]
-heap_sort(arr)
-print("Sorted array is:", arr)
+def printArray(arr):
+    for i in arr:
+        print(i, end=" ")
+    print()
+
+# Driver's code
+arr = [9, 4, 3, 8, 10, 2, 5] 
+heapSort(arr)
+print("Sorted array is ")
+printArray(arr)
